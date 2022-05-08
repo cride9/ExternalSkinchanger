@@ -1,0 +1,14 @@
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\bin\Release\ExternalMaster.exe.config
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\bin\Release\ExternalMaster.exe
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\bin\Release\ExternalMaster.pdb
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\bin\Release\Memory.dll
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\bin\Release\Memory.xml
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.csproj.AssemblyReference.cache
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.csproj.SuggestedBindingRedirects.cache
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.Main.resources
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.Properties.Resources.resources
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.csproj.GenerateResource.cache
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.csproj.CoreCompileInputs.cache
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.csproj.CopyComplete
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.exe
+C:\Users\Cride\source\repos\ExternalMaster\ExternalMaster\obj\Release\ExternalMaster.pdb

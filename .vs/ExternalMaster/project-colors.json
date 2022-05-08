@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "49ecbdfa-c20f-45b3-b811-7d81a3ac884f": {
+      "ProjectGuid": "49ecbdfa-c20f-45b3-b811-7d81a3ac884f",
+      "DisplayName": "ExternalMaster",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
