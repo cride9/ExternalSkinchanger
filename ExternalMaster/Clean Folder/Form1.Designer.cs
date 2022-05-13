@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.Misc = new System.Windows.Forms.GroupBox();
+            this.nightmode = new System.Windows.Forms.CheckBox();
             this.Radar = new System.Windows.Forms.CheckBox();
             this.csgopid = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@
             // Misc
             // 
             this.Misc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Misc.Controls.Add(this.nightmode);
             this.Misc.Controls.Add(this.Radar);
             this.Misc.Controls.Add(this.csgopid);
             this.Misc.Controls.Add(this.label1);
@@ -76,6 +78,7 @@
             this.Misc.Controls.Add(this.Thirdperson);
             this.Misc.Controls.Add(this.NoFlash);
             this.Misc.Controls.Add(this.Bhop);
+            this.Misc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.Misc.Location = new System.Drawing.Point(12, 8);
             this.Misc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Misc.Name = "Misc";
@@ -84,6 +87,17 @@
             this.Misc.TabIndex = 0;
             this.Misc.TabStop = false;
             this.Misc.Text = "Misc";
+            // 
+            // nightmode
+            // 
+            this.nightmode.AutoSize = true;
+            this.nightmode.Location = new System.Drawing.Point(15, 90);
+            this.nightmode.Name = "nightmode";
+            this.nightmode.Size = new System.Drawing.Size(104, 17);
+            this.nightmode.TabIndex = 7;
+            this.nightmode.Text = "Radio (req VLC)";
+            this.nightmode.UseVisualStyleBackColor = true;
+            this.nightmode.CheckedChanged += new System.EventHandler(this.nightmode_CheckedChanged);
             // 
             // Radar
             // 
@@ -121,7 +135,7 @@
             this.ThirdpersonBind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ThirdpersonBind.Font = new System.Drawing.Font("Nirmala UI Semilight", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ThirdpersonBind.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.ThirdpersonBind.Location = new System.Drawing.Point(15, 113);
+            this.ThirdpersonBind.Location = new System.Drawing.Point(15, 137);
             this.ThirdpersonBind.Name = "ThirdpersonBind";
             this.ThirdpersonBind.Size = new System.Drawing.Size(100, 22);
             this.ThirdpersonBind.TabIndex = 1;
@@ -132,7 +146,7 @@
             // Thirdperson
             // 
             this.Thirdperson.AutoSize = true;
-            this.Thirdperson.Location = new System.Drawing.Point(15, 90);
+            this.Thirdperson.Location = new System.Drawing.Point(15, 113);
             this.Thirdperson.Name = "Thirdperson";
             this.Thirdperson.Size = new System.Drawing.Size(88, 17);
             this.Thirdperson.TabIndex = 3;
@@ -168,6 +182,7 @@
             this.ESP.Controls.Add(this.cfgsave);
             this.ESP.Controls.Add(this.Fov);
             this.ESP.Controls.Add(this.Glow);
+            this.ESP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.ESP.Location = new System.Drawing.Point(185, 8);
             this.ESP.Name = "ESP";
             this.ESP.Size = new System.Drawing.Size(200, 86);
@@ -226,6 +241,7 @@
             this.Aim.Controls.Add(this.linkLabel1);
             this.Aim.Controls.Add(this.TriggerbotBind);
             this.Aim.Controls.Add(this.Triggerbot);
+            this.Aim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.Aim.Location = new System.Drawing.Point(185, 101);
             this.Aim.Name = "Aim";
             this.Aim.Size = new System.Drawing.Size(200, 87);
@@ -275,7 +291,7 @@
             this.SkinChanger.Location = new System.Drawing.Point(12, 194);
             this.SkinChanger.Name = "SkinChanger";
             this.SkinChanger.SelectedIndex = 0;
-            this.SkinChanger.Size = new System.Drawing.Size(367, 255);
+            this.SkinChanger.Size = new System.Drawing.Size(373, 255);
             this.SkinChanger.TabIndex = 3;
             // 
             // Pistols
@@ -300,7 +316,7 @@
             this.Pistols.Location = new System.Drawing.Point(4, 22);
             this.Pistols.Name = "Pistols";
             this.Pistols.Padding = new System.Windows.Forms.Padding(3);
-            this.Pistols.Size = new System.Drawing.Size(359, 229);
+            this.Pistols.Size = new System.Drawing.Size(365, 229);
             this.Pistols.TabIndex = 0;
             this.Pistols.Text = "Pistols";
             // 
@@ -355,7 +371,7 @@
             "Forest Leaves"});
             this.USPSkin.Location = new System.Drawing.Point(156, 6);
             this.USPSkin.Name = "USPSkin";
-            this.USPSkin.Size = new System.Drawing.Size(197, 21);
+            this.USPSkin.Size = new System.Drawing.Size(203, 21);
             this.USPSkin.TabIndex = 14;
             this.USPSkin.SelectedIndexChanged += new System.EventHandler(this.USPSkin_SelectedIndexChanged);
             // 
@@ -403,7 +419,7 @@
             "Mudder"});
             this.DesertEagleSkin.Location = new System.Drawing.Point(156, 198);
             this.DesertEagleSkin.Name = "DesertEagleSkin";
-            this.DesertEagleSkin.Size = new System.Drawing.Size(197, 21);
+            this.DesertEagleSkin.Size = new System.Drawing.Size(203, 21);
             this.DesertEagleSkin.TabIndex = 13;
             this.DesertEagleSkin.SelectedIndexChanged += new System.EventHandler(this.DesertEagleSkin_SelectedIndexChanged);
             // 
@@ -450,7 +466,7 @@
             "Jungle"});
             this.FiveSevenSkin.Location = new System.Drawing.Point(156, 171);
             this.FiveSevenSkin.Name = "FiveSevenSkin";
-            this.FiveSevenSkin.Size = new System.Drawing.Size(197, 21);
+            this.FiveSevenSkin.Size = new System.Drawing.Size(203, 21);
             this.FiveSevenSkin.TabIndex = 12;
             this.FiveSevenSkin.SelectedIndexChanged += new System.EventHandler(this.FiveSevenSkin_SelectedIndexChanged);
             // 
@@ -499,7 +515,7 @@
             "Tornado"});
             this.Tec9Skin.Location = new System.Drawing.Point(156, 144);
             this.Tec9Skin.Name = "Tec9Skin";
-            this.Tec9Skin.Size = new System.Drawing.Size(197, 21);
+            this.Tec9Skin.Size = new System.Drawing.Size(203, 21);
             this.Tec9Skin.TabIndex = 11;
             this.Tec9Skin.SelectedIndexChanged += new System.EventHandler(this.Tec9Skin_SelectedIndexChanged);
             // 
@@ -544,7 +560,7 @@
             "Green Plaid"});
             this.CZSkin.Location = new System.Drawing.Point(156, 117);
             this.CZSkin.Name = "CZSkin";
-            this.CZSkin.Size = new System.Drawing.Size(197, 21);
+            this.CZSkin.Size = new System.Drawing.Size(203, 21);
             this.CZSkin.TabIndex = 10;
             this.CZSkin.SelectedIndexChanged += new System.EventHandler(this.CZSkin_SelectedIndexChanged);
             // 
@@ -601,7 +617,7 @@
             "Bone Mask"});
             this.P250Skin.Location = new System.Drawing.Point(156, 89);
             this.P250Skin.Name = "P250Skin";
-            this.P250Skin.Size = new System.Drawing.Size(197, 21);
+            this.P250Skin.Size = new System.Drawing.Size(203, 21);
             this.P250Skin.TabIndex = 9;
             this.P250Skin.SelectedIndexChanged += new System.EventHandler(this.P250Skin_SelectedIndexChanged);
             // 
@@ -647,7 +663,7 @@
             "Colony"});
             this.BerettaSkin.Location = new System.Drawing.Point(156, 62);
             this.BerettaSkin.Name = "BerettaSkin";
-            this.BerettaSkin.Size = new System.Drawing.Size(197, 21);
+            this.BerettaSkin.Size = new System.Drawing.Size(203, 21);
             this.BerettaSkin.TabIndex = 8;
             this.BerettaSkin.SelectedIndexChanged += new System.EventHandler(this.BerettaSkin_SelectedIndexChanged);
             // 
@@ -697,7 +713,7 @@
             "Sand Dune"});
             this.GlockSkin.Location = new System.Drawing.Point(156, 33);
             this.GlockSkin.Name = "GlockSkin";
-            this.GlockSkin.Size = new System.Drawing.Size(197, 21);
+            this.GlockSkin.Size = new System.Drawing.Size(203, 21);
             this.GlockSkin.TabIndex = 7;
             this.GlockSkin.SelectedIndexChanged += new System.EventHandler(this.GlockSkin_SelectedIndexChanged);
             // 
@@ -835,6 +851,7 @@
         private System.Windows.Forms.Button cfgsave;
         private System.Windows.Forms.Button loadcfg;
         public System.Windows.Forms.CheckBox Radar;
+        public System.Windows.Forms.CheckBox nightmode;
     }
 }
 

@@ -19,20 +19,17 @@ namespace ExternalMaster {
         public static extern short GetAsyncKeyState(Keys keys);
         public static Mem Memory = new Mem();
         public static Keys Trigger_Bind, Thirdperson_Bind;
-        public static string GlowObjectManager = "client.dll+" + ReadHex(hazedumper.signatures.dwGlowObjectManager) + ",";
+        public static string GlowObjectManager = "client.dll+" + ReadHex(hazedumper.signatures.dwGlowObjectManager) + ",", vlcpath;
         public static int uspskin, glockskin, berettaskin, p250skin, czskin, tec9skin, fivesevenskin, desertskin, CurrentWeaponID, EntityList, CurrentWeaponEntity;
         public static bool Initialized;
-        public static bool bBhop, bFakelag, bFov, bGlow, bFlash, bThirdPerson, bTrigger, bRadar;
-
+        public static bool bBhop, bFakelag, bFov, bGlow, bFlash, bThirdPerson, bTrigger, bRadar, bNightMode;
         public static string ReadHex(Int32 value) {
 
             return "0x" + value.ToString("X");
         }
-
         public Main() {
             InitializeComponent();
         }
-
         // wtf is that for real
         public void TriggerbotBind_KeyPress(object sender, KeyPressEventArgs e) {
 
@@ -73,7 +70,6 @@ namespace ExternalMaster {
             Thread NoFlashThread = new Thread(() => cRemoveFlash.RemoveFlash()) { IsBackground = true };
             NoFlashThread.Start();
         }
-
         private void savecfg(object sender, EventArgs e) {
 
             var sw = new StreamWriter(@"config.cride", false, Encoding.UTF8);
@@ -106,9 +102,6 @@ namespace ExternalMaster {
 
             var sr = new StreamReader(@"config.cride", Encoding.UTF8);
 
-            if (sr.EndOfStream)
-                return;
-
             Bhop.Checked = bool.Parse(sr.ReadLine()) ? true : false;
             NoFlash.Checked = bool.Parse(sr.ReadLine()) ? true : false;
             Radar.Checked = bool.Parse(sr.ReadLine()) ? true : false;
@@ -133,7 +126,15 @@ namespace ExternalMaster {
             FiveSevenSkin.SelectedIndex = int.Parse(sr.ReadLine());
             DesertEagleSkin.SelectedIndex = int.Parse(sr.ReadLine());
 
+            vlcpath = sr.ReadLine();
+
             sr.Close();
+        }
+        private void nightmode_CheckedChanged(object sender, EventArgs e) {
+            bNightMode = nightmode.Checked;
+
+            Thread nightmodethread = new Thread(() => cNightmode.NightMode()) { IsBackground = true };
+            nightmodethread.Start();
         }
         private void radarcheckbox_CheckedChanged(object sender, EventArgs e) {
 
@@ -198,35 +199,27 @@ namespace ExternalMaster {
         public void USPSkin_SelectedIndexChanged(object sender, EventArgs e) {
             uspskin = USPSkin.SelectedIndex;
         }
-
         public void GlockSkin_SelectedIndexChanged(object sender, EventArgs e) {
             glockskin = GlockSkin.SelectedIndex;
         }
-
         public void BerettaSkin_SelectedIndexChanged(object sender, EventArgs e) {
             berettaskin = BerettaSkin.SelectedIndex;
         }
-
         public void P250Skin_SelectedIndexChanged(object sender, EventArgs e) {
             p250skin = P250Skin.SelectedIndex;
         }
-
         public void CZSkin_SelectedIndexChanged(object sender, EventArgs e) {
             czskin = CZSkin.SelectedIndex;
         }
-
         public void Tec9Skin_SelectedIndexChanged(object sender, EventArgs e) {
             tec9skin = Tec9Skin.SelectedIndex;
         }
-
         public void FiveSevenSkin_SelectedIndexChanged(object sender, EventArgs e) {
             fivesevenskin = FiveSevenSkin.SelectedIndex;
         }
-
         public void DesertEagleSkin_SelectedIndexChanged(object sender, EventArgs e) {
             desertskin = DesertEagleSkin.SelectedIndex;
         }
-
         public static void ChangeFov(int input) {
             Memory.WriteMemory($"{ReadHex(Memory.ReadInt($"client.dll+{ReadHex(hazedumper.signatures.dwLocalPlayer)}"))}+{ReadHex(hazedumper.netvars.m_iFOV)}", "int", input.ToString());
         }

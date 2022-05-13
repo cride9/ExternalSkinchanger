@@ -250,7 +250,13 @@ namespace ExternalMaster {
 
 					WeaponIndex = Main.Memory.Read2Byte($"{Main.ReadHex(pLocal.ID)}+{Main.ReadHex(hazedumper.netvars.m_hMyWeapons + i * 0x4)}") & 0xfff;
 					EntityList = Main.Memory.ReadInt($"client.dll+{Main.ReadHex(hazedumper.signatures.dwEntityList + (WeaponIndex - 1) * 0x10)}");
-					CurrentWeaponID = Main.Memory.Read2Byte($"{Main.ReadHex(EntityList)}+{Main.ReadHex(hazedumper.netvars.m_iItemDefinitionIndex)}");
+                    try {
+						CurrentWeaponID = Main.Memory.Read2Byte($"{Main.ReadHex(EntityList)}+{Main.ReadHex(hazedumper.netvars.m_iItemDefinitionIndex)}");
+					}
+                    catch (OverflowException) {
+
+						continue;
+                    }
 
 					// Im pretty sure it's outdated but here you go
 					// Skin ID list: https://steamcommunity.com/sharedfiles/filedetails/?id=880595913
@@ -275,6 +281,8 @@ namespace ExternalMaster {
 				Main.Memory.WriteMemory($"{Main.ReadHex(EntityList)}+{Main.ReadHex(hazedumper.netvars.m_nFallbackPaintKit)}", "int", $"{skinid}");
 
 				Main.Memory.WriteMemory($"engine.dll+{Main.ReadHex(hazedumper.signatures.dwClientState)},{Main.ReadHex(hazedumper.signatures.clientstate_delta_ticks)}", "int", "-1");
+
+				//Thread.Sleep(1000);
 			}
 		}
 	}

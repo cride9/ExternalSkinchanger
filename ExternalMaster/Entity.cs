@@ -45,6 +45,12 @@ namespace ExternalMaster {
 
             return Main.Memory.WriteMemory($"{Main.ReadHex(ID)}+{Main.ReadHex(hazedumper.netvars.m_bSpotted)}", "int", $"{(value ? 1 : 0)}");
         }
-
+        public int WeaponBase() {
+            var activeweapon = Main.Memory.ReadInt($"{Main.ReadHex(ID)}+{Main.ReadHex(hazedumper.netvars.m_hActiveWeapon)}");
+            return Main.Memory.ReadInt($"client.dll+{Main.ReadHex(hazedumper.signatures.dwEntityList + ( (activeweapon & 0xFFF) - 1) * 0x10)}");
+        }
+        public float m_nTickBase() {
+            return Main.Memory.ReadFloat($"{Main.ReadHex(ID)}+{Main.ReadHex(hazedumper.netvars.m_nTickBase)}", "", false);
+        }
     }
 }
